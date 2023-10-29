@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Google Map Search</title>
+    </head>
+    <body>
+        <h1>Google Map Search</h1>
+
+        <!-- Form for user input -->
+        <form id="search-form">
+            <label for="street">Street:</label>
+            <input type="text" id="street" placeholder="Enter street name" />
+            <br />
+            <label for="city">City:</label>
+            <input type="text" id="city" placeholder="Enter city name" />
+            <br />
+            <button type="button" onclick="searchLocation()">Search</button>
+        </form>
+
+        <!-- Google Map iframe -->
+        <iframe
+            width="600"
+            height="450"
+            frameborder="0"
+            style="border: 0"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.977371575821!2dYOUR_LONGITUDE!3dYOUR_LATITUDE!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zYOUR_CITY!5e0!3m2!1sen!2sus!4vYOUR_MAP_ZOOM!5m2!1sen!2sus"
+            allowfullscreen
+        >
+        </iframe>
+
+        <script>
+            function searchLocation() {
+                // Get user input for street and city
+                const street = document.getElementById("street").value;
+                const city = document.getElementById("city").value;
+
+                // Build the Google Maps URL with the user's input
+                const googleMapsUrl = `https://www.google.com/maps/embed?q=${street}, ${city}`;
+
+                // Set the iframe's src attribute to the new URL
+                const iframe = document.querySelector("iframe");
+                iframe.src = googleMapsUrl;
+            }
+        </script>
+    </body>
+</html>
